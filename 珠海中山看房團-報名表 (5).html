@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>珠海・中山看房團｜立即報名</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a3a5c;
+    --blue: #2c5f8a;
+    --sky: #5b9ec9;
+    --gold: #c8a000;
+    --gold-light: #fff8e0;
+    --sand: #f5f0e8;
+    --white: #ffffff;
+    --text: #2a2a2a;
+    --muted: #6b7280;
+    --border: #d4d4d4;
+    --green: #2d7a4f;
+    --green-light: #edfaf2;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--sand);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(44,95,138,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(200,160,0,0.05) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .page-wrap {
+    position: relative; z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(150deg, #1a3a5c 0%, #2c5f8a 100%);
+    border-radius: 16px 16px 0 0;
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(91,158,201,0.15);
+  }
+  .header::after {
+    content: '';
+    position: absolute; bottom: -50px; left: 20px;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: rgba(200,160,0,0.1);
+  }
+
+  .header-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gold); color: var(--navy);
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    padding: 5px 16px; border-radius: 20px; margin-bottom: 18px;
+  }
+
+  .header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 30px; font-weight: 700;
+    color: var(--white); line-height: 1.4; margin-bottom: 6px;
+  }
+
+  .header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px; font-weight: 400;
+    color: rgba(255,255,255,0.65); margin-bottom: 28px;
+  }
+
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .header-tag {
+    background: rgba(255,255,255,0.13);
+    color: rgba(255,255,255,0.88);
+    font-size: 13px; padding: 6px 15px;
+    border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── HIGHLIGHT STRIP ── */
+  .highlight-strip {
+    background: var(--green);
+    padding: 14px 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .highlight-strip span {
+    color: white; font-size: 14px; line-height: 1.6;
+  }
+
+  .highlight-strip strong { font-weight: 600; }
+
+  /* ── COST PILLS ── */
+  .cost-bar {
+    background: var(--gold-light);
+    border-bottom: 1px solid #e8d88a;
+    padding: 16px 28px;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  }
+
+  .cost-label {
+    font-size: 13px; font-weight: 600;
+    color: #7a5a00; margin-right: 4px;
+  }
+
+  .cost-pill {
+    background: white;
+    border: 1.5px solid #e0c840;
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 13px; color: #5a4000;
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  .cost-pill strong { color: #b08000; font-size: 15px; }
+
+  .cost-total {
+    margin-left: auto;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 14px; font-weight: 700;
+  }
+
+  /* ── NOTICE ── */
+  .notice {
+    background: #f0f7ff;
+    border-left: 4px solid var(--sky);
+    padding: 14px 20px;
+    font-size: 13.5px; color: #1e3a5c; line-height: 1.8;
+  }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: var(--white);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 8px 40px rgba(26,58,92,0.08);
+    overflow: hidden;
+  }
+
+  .section {
+    padding: 36px 40px;
+    border-bottom: 1px solid #f0ece4;
+  }
+
+  .section-header {
+    display: flex; align-items: center;
+    gap: 12px; margin-bottom: 22px;
+  }
+
+  .section-num {
+    width: 30px; height: 30px;
+    background: var(--navy); color: white;
+    border-radius: 50%; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px; font-weight: 700; color: var(--navy);
+  }
+
+  .section-hint {
+    font-size: 12px; color: var(--muted);
+    margin-left: auto;
+    background: #f3f4f6;
+    padding: 3px 10px; border-radius: 10px;
+  }
+
+  /* Required tag */
+  .req-tag {
+    font-size: 11px; font-weight: 600;
+    color: white; background: #e53e3e;
+    padding: 2px 8px; border-radius: 8px;
+    margin-left: auto;
+  }
+
+  /* Fields */
+  .field-group {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 14px;
+  }
+
+  .field-group.single { grid-template-columns: 1fr; }
+  .field-group.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field label {
+    display: block; font-size: 13px;
+    font-weight: 500; color: var(--muted); margin-bottom: 6px;
+  }
+
+  .field label .req { color: #e53e3e; margin-left: 2px; }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="date"],
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--text);
+    background: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .field input:focus, .field textarea:focus, .field select:focus {
+    border-color: var(--sky);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(91,158,201,0.15);
+  }
+
+  .field textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+
+  /* Check grid */
+  .check-grid { display: grid; gap: 10px; }
+  .check-grid.col2 { grid-template-columns: 1fr 1fr; }
+  .check-grid.col3 { grid-template-columns: 1fr 1fr 1fr; }
+  .check-grid.col4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+  .check-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px; cursor: pointer;
+    transition: all 0.18s;
+    background: #fafafa; user-select: none;
+  }
+
+  .check-item:hover { border-color: var(--sky); background: #f0f7ff; }
+  .check-item input { width: 17px; height: 17px; accent-color: var(--blue); cursor: pointer; flex-shrink: 0; }
+  .check-item span { font-size: 14px; line-height: 1.4; }
+  .check-item:has(input:checked) { border-color: var(--blue); background: #eef5fb; }
+  .check-item:has(input:checked) span { color: var(--navy); font-weight: 500; }
+
+  /* Priority */
+  .priority-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .priority-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    background: #f8f9fa; border: 1.5px solid var(--border); border-radius: 8px;
+  }
+
+  .priority-item select {
+    width: 70px; padding: 6px 8px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px; font-size: 14px;
+    font-family: 'Noto Sans TC', sans-serif;
+    background: white; cursor: pointer; flex-shrink: 0; outline: none;
+  }
+
+  .priority-item select:focus { border-color: var(--sky); }
+  .priority-item span { font-size: 14px; }
+
+  .sub-q { margin-bottom: 20px; }
+  .sub-q-label { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 10px; display: block; }
+  .sub-divider { margin: 20px 0; border: none; border-top: 1px dashed #e5e7eb; }
+
+  /* Terms */
+  .terms-box {
+    background: #f8f9fa;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .terms-box h4 {
+    font-size: 14px; font-weight: 700;
+    color: var(--navy); margin-bottom: 10px;
+  }
+
+  .terms-box li { margin-left: 18px; margin-bottom: 4px; }
+
+  .agree-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .agree-row:has(input:checked) { border-color: var(--green); background: var(--green-light); }
+
+  .agree-row input { width: 18px; height: 18px; accent-color: var(--green); margin-top: 2px; flex-shrink: 0; }
+  .agree-row span { font-size: 14px; line-height: 1.6; color: var(--text); }
+
+  /* Submit */
+  .submit-section {
+    padding: 40px;
+    background: linear-gradient(135deg, var(--navy) 0%, #2c5f8a 100%);
+    text-align: center;
+  }
+
+  .submit-section p { color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 24px; line-height: 1.8; }
+
+  .btn-submit {
+    display: inline-block;
+    background: var(--gold); color: var(--navy);
+    font-size: 16px; font-weight: 700;
+    font-family: 'Noto Sans TC', sans-serif;
+    padding: 15px 56px; border-radius: 50px; border: none;
+    cursor: pointer; letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(200,160,0,0.4);
+  }
+
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,160,0,0.5); }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .submit-note { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  /* Success */
+  #success-screen {
+    display: none; max-width: 780px;
+    margin: 0 auto; padding: 40px 20px 80px; text-align: center;
+  }
+
+  .success-card {
+    background: white; border-radius: 16px;
+    padding: 60px 40px;
+    box-shadow: 0 8px 40px rgba(26,58,92,0.08);
+  }
+
+  .success-icon { font-size: 60px; margin-bottom: 20px; display: block; }
+  .success-card h2 { font-family: 'Noto Serif TC', serif; font-size: 26px; color: var(--navy); margin-bottom: 12px; }
+  .success-card p { font-size: 15px; color: var(--muted); line-height: 1.9; margin-top: 10px; }
+
+  .success-info {
+    display: inline-block;
+    background: var(--green-light);
+    border: 1.5px solid #a0d8b8;
+    border-radius: 12px;
+    padding: 16px 28px;
+    margin-top: 24px;
+    font-size: 14px; color: #1a5c35; line-height: 1.8;
+    text-align: left;
+  }
+
+  /* Responsive */
+  @media (max-width: 560px) {
+    .field-group, .field-group.triple { grid-template-columns: 1fr; }
+    .check-grid.col3, .check-grid.col4 { grid-template-columns: 1fr 1fr; }
+    .priority-grid { grid-template-columns: 1fr; }
+    .section { padding: 28px 20px; }
+    .header { padding: 36px 24px 32px; }
+    .header h1 { font-size: 24px; }
+    .submit-section { padding: 32px 20px; }
+    .cost-bar { flex-direction: column; align-items: flex-start; }
+    .cost-total { margin-left: 0; }
+  }
+
+  /* ── PLAN CARDS ── */
+  .plan-bar {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; background: #1a3a5c;
+    padding: 24px 28px; gap: 16px;
+  }
+
+  .plan-card {
+    background: white;
+    border: 3px solid #d4d4d4;
+    border-radius: 12px;
+    padding: 20px 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .plan-card:hover { border-color: #5b9ec9; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+  .plan-card.selected { border-color: #2c5f8a; background: #eef5fb; box-shadow: 0 0 0 2px #2c5f8a; }
+  .plan-card.recommended { border-color: #c8a000; }
+  .plan-card.recommended.selected { border-color: #c8a000; background: #fff8e0; box-shadow: 0 0 0 2px #c8a000; }
+
+  .plan-rec-tag {
+    position: absolute; top: 12px; right: -8px;
+    background: #c8a000; color: #1a3a5c;
+    font-size: 11px; font-weight: 700;
+    padding: 3px 16px 3px 10px;
+    border-radius: 4px 0 0 4px;
+    letter-spacing: 1px;
+  }
+
+  .plan-badge { font-size: 12px; font-weight: 700; color: #6b7280; letter-spacing: 1px; margin-bottom: 4px; }
+  .plan-days { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #1a3a5c; margin-bottom: 2px; }
+  .plan-dates { font-size: 12px; color: #888; margin-bottom: 12px; }
+  .plan-price { font-size: 26px; font-weight: 700; color: #2c5f8a; margin-bottom: 12px; }
+  .plan-price span { font-size: 14px; font-weight: 400; color: #888; }
+  .plan-card.recommended .plan-price { color: #b08000; }
+
+  .plan-includes { list-style: none; padding: 0; margin-bottom: 14px; }
+  .plan-includes li { font-size: 13px; color: #444; padding: 3px 0; border-bottom: 1px dashed #eee; }
+  .plan-includes li:last-child { border: none; }
+
+  .plan-select-indicator {
+    text-align: center; font-size: 12px; font-weight: 600;
+    color: #aaa; padding: 6px;
+    border: 1.5px dashed #ddd; border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .plan-card.selected .plan-select-indicator {
+    background: #2c5f8a; color: white; border-color: #2c5f8a;
+  }
+
+  .plan-card.recommended.selected .plan-select-indicator {
+    background: #c8a000; color: #1a3a5c; border-color: #c8a000;
+  }
+
+  .plan-warning {
+    background: #fff3f3; border: 1.5px solid #f5a0a0;
+    border-radius: 8px; padding: 10px 14px;
+    font-size: 13px; color: #c0392b; margin-top: 12px; display: none;
+  }
+
+  @media (max-width: 560px) {
+    .plan-bar { grid-template-columns: 1fr; padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap" id="main-form-wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">✈️ 2026 自費看房團</div>
+    <h1>珠海・中山看房團</h1>
+    <h2>立即報名 × 購房需求登記</h2>
+    <div class="header-meta">
+      <span class="header-tag">📅 2026年7月12日(日) — 15日(三)</span>
+      <span class="header-tag">🛬 澳門機場進出</span>
+      <span class="header-tag">👥 最低成團 10 人</span>
+      <span class="header-tag">🏨 一人一間・含早餐</span>
+    </div>
+  </div>
+
+  <!-- Green strip -->
+  <div class="highlight-strip">
+    <span>✅ <strong>全程自費・中立帶看</strong>　我們不接受開發商補貼，只為您找真正適合的物件。購房與否完全自願。</span>
+  </div>
+
+  <!-- Plan cards -->
+  <div class="plan-bar">
+    <div class="plan-card" id="plan-card-3" onclick="selectPlan('3')">
+      <div class="plan-badge">方案 A</div>
+      <div class="plan-days">三天兩夜</div>
+      <div class="plan-dates">7/12(日) — 7/14(一)</div>
+      <div class="plan-price">人民幣 1,500 <span>元 / 人</span></div>
+      <ul class="plan-includes">
+        <li>🚌 交通 人民幣 300 元</li>
+        <li>🏨 住宿 2 晚 人民幣 550 元</li>
+        <li>🍽 4 正餐 人民幣 360 元</li>
+        <li>🧭 導遊 人民幣 120 元</li>
+        <li>🏠 看房 3–4 處</li>
+      </ul>
+      <div class="plan-select-indicator">點擊選擇</div>
+    </div>
+    <div class="plan-card recommended" id="plan-card-4" onclick="selectPlan('4')">
+      <div class="plan-rec-tag">推薦</div>
+      <div class="plan-badge">方案 B</div>
+      <div class="plan-days">四天三夜</div>
+      <div class="plan-dates">7/12(日) — 7/15(三)</div>
+      <div class="plan-price">人民幣 2,000 <span>元 / 人</span></div>
+      <ul class="plan-includes">
+        <li>🚌 交通 人民幣 400 元</li>
+        <li>🏨 住宿 3 晚 人民幣 800 元</li>
+        <li>🍽 6 正餐 人民幣 520 元</li>
+        <li>🧭 導遊 人民幣 160 元</li>
+        <li>🏠 看房 4–6 處</li>
+        <li>🏛 孫中山故居 + 文化行程</li>
+      </ul>
+      <div class="plan-select-indicator">點擊選擇</div>
+    </div>
+  </div>
+  <input type="hidden" name="plan" id="plan-input" value="">
+  <input type="hidden" name="選擇方案" id="plan-label" value="">
+  <input type="hidden" name="_next" value="about:blank">
+  <input type="hidden" name="_subject" value="【看房團報名】新報名表單">
+
+  <div class="form-card">
+
+    <div class="notice">
+      📋 填寫此表即完成報名登記，主辦方將於 <strong>3 個工作天內</strong>與您聯繫確認。填寫內容絕對保密，不會提供給任何第三方（包含開發商）。
+    </div>
+    <div class="plan-warning" id="plan-warning">請先選擇上方的報名方案！</div>
+
+    <form id="reg-form" action="https://formspree.io/f/mojrordp" method="POST">
+
+      <!-- S1: 報名人資料 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">1</div>
+          <div class="section-title">報名人資料</div>
+          <span class="req-tag">必填</span>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>姓名（真實姓名）<span class="req">*</span></label>
+            <input type="text" name="name" placeholder="請輸入真實姓名" required>
+          </div>
+          <div class="field">
+            <label>聯絡電話<span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="0912-345-678" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>電子信箱</label>
+            <input type="email" name="email" placeholder="example@gmail.com">
+          </div>
+          <div class="field">
+            <label>微信帳號（WeChat ID）<span class="req">*</span></label>
+            <input type="text" name="wechat" placeholder="建議填寫，主辦方主要透過微信聯繫" required>
+          </div>
+          <div class="field">
+            <label>LINE ID（選填）</label>
+            <input type="text" name="line" placeholder="如無微信可填 LINE">
+          </div>
+        </div>
+        <div style="margin: -6px 0 12px; font-size: 12.5px; color: #888;">
+          💬 建議填寫微信帳號，主辦方主要透過微信與您聯繫；如無微信再填 LINE。
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>居住縣市</label>
+            <input type="text" name="city" placeholder="例：高雄市">
+          </div>
+          <div class="field">
+            <label>職業 / 產業別</label>
+            <input type="text" name="job" placeholder="例：自營商、製造業">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>出生年份（供保險用）</label>
+            <input type="text" name="birth_year" placeholder="例：1975">
+          </div>
+          <div class="field">
+            <label>護照號碼（如已申辦）</label>
+            <input type="text" name="passport" placeholder="例：300123456">
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>台胞證號碼（如已申辦）</label>
+            <input type="text" name="taibao" placeholder="例：12345678（8位數字）">
+          </div>
+        </div>
+      </div>
+
+      <!-- S2: 緊急聯絡人 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">2</div>
+          <div class="section-title">緊急聯絡人</div>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>緊急聯絡人姓名</label>
+            <input type="text" name="ec_name" placeholder="請輸入姓名">
+          </div>
+          <div class="field">
+            <label>與本人關係</label>
+            <input type="text" name="ec_relation" placeholder="例：配偶、子女">
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>緊急聯絡電話</label>
+            <input type="tel" name="ec_phone" placeholder="0912-345-678">
+          </div>
+        </div>
+      </div>
+
+      <!-- S3: 購房目的 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">3</div>
+          <div class="section-title">購房目的</div>
+          <span class="section-hint">可複選</span>
+        </div>
+        <div class="check-grid col3">
+          <label class="check-item"><input type="checkbox" name="purpose" value="退休養老自住"><span>🏡 退休養老自住</span></label>
+          <label class="check-item"><input type="checkbox" name="purpose" value="投資出租收益"><span>💰 投資出租收益</span></label>
+          <label class="check-item"><input type="checkbox" name="purpose" value="兩岸往返落腳"><span>✈️ 兩岸往返落腳</span></label>
+          <label class="check-item"><input type="checkbox" name="purpose" value="子女就學陪讀"><span>📚 子女就學／陪讀</span></label>
+          <label class="check-item"><input type="checkbox" name="purpose" value="商務辦公使用"><span>💼 商務辦公使用</span></label>
+          <label class="check-item"><input type="checkbox" name="purpose" value="純粹了解市場"><span>🔍 純粹了解市場</span></label>
+        </div>
+        <div style="margin-top:12px">
+          <div class="field"><label>其他目的</label><input type="text" name="purpose_other" placeholder="請說明..."></div>
+        </div>
+      </div>
+
+      <!-- S4: 預算 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">4</div>
+          <div class="section-title">購房預算</div>
+          <span class="section-hint">單選</span>
+        </div>
+        <div class="check-grid col2">
+          <label class="check-item"><input type="radio" name="budget" value="50萬以下"><span>50 萬人民幣（CNY）以下</span></label>
+          <label class="check-item"><input type="radio" name="budget" value="50-80萬"><span>50 — 80 萬人民幣（CNY）</span></label>
+          <label class="check-item"><input type="radio" name="budget" value="80-120萬"><span>80 — 120 萬人民幣（CNY）</span></label>
+          <label class="check-item"><input type="radio" name="budget" value="120-200萬"><span>120 — 200 萬人民幣（CNY）</span></label>
+          <label class="check-item"><input type="radio" name="budget" value="200萬以上"><span>200 萬人民幣（CNY）以上</span></label>
+          <label class="check-item"><input type="radio" name="budget" value="彈性視物件而定"><span>彈性，視物件條件而定</span></label>
+        </div>
+      </div>
+
+      <!-- S5: 房型 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">5</div>
+          <div class="section-title">偏好房型</div>
+          <span class="section-hint">可複選</span>
+        </div>
+        <div class="check-grid col2">
+          <label class="check-item"><input type="checkbox" name="type" value="套房一房一廳"><span>套房 / 一房一廳</span></label>
+          <label class="check-item"><input type="checkbox" name="type" value="兩房一廳"><span>兩房一廳（2房）</span></label>
+          <label class="check-item"><input type="checkbox" name="type" value="三房兩廳以上"><span>三房兩廳以上</span></label>
+          <label class="check-item"><input type="checkbox" name="type" value="Loft複式公寓"><span>Loft / 複式公寓</span></label>
+          <label class="check-item"><input type="checkbox" name="type" value="小別墅聯排別墅"><span>小別墅 / 聯排別墅</span></label>
+          <label class="check-item"><input type="checkbox" name="type" value="新屋預售新成屋"><span>新屋（預售 / 新成屋）</span></label>
+          <label class="check-item"><input type="checkbox" name="type" value="中古屋有租約尤佳"><span>中古屋（有現成租約尤佳）</span></label>
+          <label class="check-item"><input type="checkbox" name="type" value="不限以投報率優先"><span>不限，以投報率優先</span></label>
+        </div>
+      </div>
+
+      <!-- S6: 地點 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">6</div>
+          <div class="section-title">偏好地點</div>
+          <span class="section-hint">可複選</span>
+        </div>
+        <div class="check-grid col4">
+          <label class="check-item"><input type="checkbox" name="location" value="珠海市區"><span>珠海市區</span></label>
+          <label class="check-item"><input type="checkbox" name="location" value="珠海橫琴自貿區"><span>橫琴（自貿區）</span></label>
+          <label class="check-item"><input type="checkbox" name="location" value="珠海斗門金灣"><span>斗門 / 金灣</span></label>
+          <label class="check-item"><input type="checkbox" name="location" value="中山坦洲"><span>中山坦洲</span></label>
+          <label class="check-item"><input type="checkbox" name="location" value="中山三鄉"><span>中山三鄉</span></label>
+          <label class="check-item"><input type="checkbox" name="location" value="中山市區"><span>中山市區</span></label>
+          <label class="check-item"><input type="checkbox" name="location" value="不限以性價比優先"><span>不限，性價比優先</span></label>
+          <label class="check-item"><input type="checkbox" name="location" value="靠近捷運站"><span>靠近捷運站</span></label>
+        </div>
+      </div>
+
+      <!-- S7: 投資優先條件 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">7</div>
+          <div class="section-title">投資最重視的條件</div>
+          <span class="section-hint">排序 1–3 名（1 = 最重要）</span>
+        </div>
+        <div class="priority-grid">
+          <div class="priority-item"><select name="pri_yield"><option value="">－</option><option>1</option><option>2</option><option>3</option></select><span>租金報酬率（年化）</span></div>
+          <div class="priority-item"><select name="pri_location"><option value="">－</option><option>1</option><option>2</option><option>3</option></select><span>地段 / 交通便利性</span></div>
+          <div class="priority-item"><select name="pri_appreciation"><option value="">－</option><option>1</option><option>2</option><option>3</option></select><span>未來增值潛力</span></div>
+          <div class="priority-item"><select name="pri_price"><option value="">－</option><option>1</option><option>2</option><option>3</option></select><span>總價低、進場門檻低</span></div>
+          <div class="priority-item"><select name="pri_brand"><option value="">－</option><option>1</option><option>2</option><option>3</option></select><span>開發商品牌與交屋保障</span></div>
+          <div class="priority-item"><select name="pri_amenity"><option value="">－</option><option>1</option><option>2</option><option>3</option></select><span>生活機能（商場／醫院）</span></div>
+        </div>
+      </div>
+
+      <!-- S8: 顧慮 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">8</div>
+          <div class="section-title">對大陸置產最擔心的問題</div>
+          <span class="section-hint">可複選</span>
+        </div>
+        <div class="check-grid col4">
+          <label class="check-item"><input type="checkbox" name="concern" value="產權年限70年"><span>產權年限（70年）</span></label>
+          <label class="check-item"><input type="checkbox" name="concern" value="資金匯出困難"><span>資金匯出困難</span></label>
+          <label class="check-item"><input type="checkbox" name="concern" value="爛尾樓交屋風險"><span>爛尾樓交屋風險</span></label>
+          <label class="check-item"><input type="checkbox" name="concern" value="產權繼承問題"><span>產權繼承問題</span></label>
+          <label class="check-item"><input type="checkbox" name="concern" value="後續管理不方便"><span>後續管理不方便</span></label>
+          <label class="check-item"><input type="checkbox" name="concern" value="政策法規不熟悉"><span>政策法規不熟悉</span></label>
+          <label class="check-item"><input type="checkbox" name="concern" value="匯率波動風險"><span>匯率波動風險</span></label>
+          <label class="check-item"><input type="checkbox" name="concern" value="沒有特別擔心"><span>沒有特別擔心</span></label>
+        </div>
+      </div>
+
+      <!-- S9: 購房時程 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">9</div>
+          <div class="section-title">購房時程與意願</div>
+        </div>
+        <div class="sub-q">
+          <span class="sub-q-label">若這次行程看到滿意物件，您是否有意願當場決定？</span>
+          <div class="check-grid col3">
+            <label class="check-item"><input type="radio" name="decision" value="有，準備好了"><span>✅ 有，準備好了</span></label>
+            <label class="check-item"><input type="radio" name="decision" value="需要回台灣再考慮"><span>🤔 需要回台灣考慮</span></label>
+            <label class="check-item"><input type="radio" name="decision" value="純粹了解短期不買"><span>👀 純粹了解市場</span></label>
+          </div>
+        </div>
+        <hr class="sub-divider">
+        <div class="sub-q">
+          <span class="sub-q-label">您是否曾在大陸購置過房產？</span>
+          <div class="check-grid col2">
+            <label class="check-item"><input type="radio" name="experience" value="是，有購屋經驗"><span>是，有購屋經驗</span></label>
+            <label class="check-item"><input type="radio" name="experience" value="否，第一次了解"><span>否，第一次了解</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- S10: 特殊需求 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">10</div>
+          <div class="section-title">特殊需求 & 備註</div>
+        </div>
+        <div class="field" style="margin-bottom:16px">
+          <label>希望導遊特別說明的事項</label>
+          <textarea name="special_explain" placeholder="例：如何辦理過戶、貸款條件、台灣人置產限制、租賃管理方式…"></textarea>
+        </div>
+        <div class="field">
+          <label>其他備註（飲食禁忌、行動不便、特殊需求等）</label>
+          <textarea name="remarks" placeholder="請自由填寫..."></textarea>
+        </div>
+      </div>
+
+      <!-- S11: 條款同意 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">11</div>
+          <div class="section-title">報名條款確認</div>
+        </div>
+        <div class="terms-box">
+          <h4>📋 報名須知</h4>
+          <ul>
+            <li>本行程為<strong>自費團</strong>，報名費用以主辦方確認通知為準，請於期限內完成繳費。</li>
+            <li>行程費用<strong>不含</strong>台灣至澳門來回機票及個人消費。</li>
+            <li>住宿以<strong>一人一間</strong>標準單人房為主，含每日早餐，共 3 晚。</li>
+            <li>看房行程僅供了解當地房產市場，<strong>購房與否完全自願</strong>，不存在任何購買壓力。</li>
+            <li>行程如遇不可抗力因素（天候、政策等），主辦方保留調整權利並提前通知。</li>
+            <li>本表填寫之個人資料僅供主辦方聯繫及行程安排使用，<strong>不會提供給開發商或任何第三方</strong>。</li>
+            <li>最低成團人數為 <strong>10 人</strong>，未達成團人數時主辦方將提前告知並全額退費。</li>
+          </ul>
+        </div>
+        <label class="agree-row">
+          <input type="checkbox" name="agree" id="agree" required>
+          <span>我已閱讀並同意以上報名條款，確認本人自願參加此行程，並了解本行程費用及看房性質。</span>
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-section">
+        <p>填寫完成後點擊送出，主辦方將於 3 個工作天內透過微信與您聯繫，<br>確認報名細節及費用繳交方式。</p>
+        <button type="submit" class="btn-submit" id="submit-btn">送出報名表 ✈️</button>
+        <p class="submit-note">資料將直接送達主辦方，無需再另外發送 Email。</p>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- Success -->
+<div id="success-screen">
+  <div style="max-width:780px;margin:0 auto;padding:40px 20px 80px;">
+    <div class="success-card">
+      <span class="success-icon">🎉</span>
+      <h2>報名表已送出！</h2>
+      <p>感謝您的報名，主辦方將於 <strong>3 個工作天內</strong>透過微信與您聯繫，<br>確認報名資格及費用繳交方式。</p>
+      <div class="success-info">
+        <strong>接下來的步驟：</strong><br>
+        1️⃣　等候主辦方微信聯繫確認<br>
+        2️⃣　依通知完成費用繳交<br>
+        3️⃣　收到出發前行程說明與集合資訊<br>
+        4️⃣　出發前填寫護照資料（如尚未提供）
+      </div>
+      <p style="margin-top:20px; font-size:13px;">如有任何疑問，歡迎直接透過微信聯繫主辦方。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('reg-form').addEventListener('submit', function(e) {
+  // 1. Check plan selected
+  const planVal = document.getElementById('plan-input').value;
+  if (!planVal) {
+    e.preventDefault();
+    document.getElementById('plan-warning').style.display = 'block';
+    document.querySelector('.plan-bar').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+  document.getElementById('plan-warning').style.display = 'none';
+
+  // 2. Check required fields
+  const form = e.target;
+  const name = form.querySelector('[name="name"]').value.trim();
+  const phone = form.querySelector('[name="phone"]').value.trim();
+  const wechat = form.querySelector('[name="wechat"]').value.trim();
+  const line = form.querySelector('[name="line"]').value.trim();
+  if (!name || !phone || !wechat) {
+    e.preventDefault();
+    alert('請填寫姓名、聯絡電話及微信帳號！');
+    return;
+  }
+
+  // 3. Check agree
+  if (!form.querySelector('#agree').checked) {
+    e.preventDefault();
+    alert('請勾選同意報名條款！');
+    return;
+  }
+
+  // 4. Set human-readable plan label
+  document.getElementById('plan-label').value = planVal === '3'
+    ? '方案A 三天兩夜 人民幣 1,500 元/人'
+    : '方案B 四天三夜 人民幣 2,000 元/人';
+
+  // 5. Disable submit to prevent double-click
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = '送出中...';
+
+  // Let form submit naturally to Formspree
+});
+
+function selectPlan(plan) {
+  document.getElementById('plan-card-3').classList.remove('selected');
+  document.getElementById('plan-card-4').classList.remove('selected');
+  document.getElementById('plan-card-' + plan).classList.add('selected');
+  document.getElementById('plan-input').value = plan;
+  document.getElementById('plan-warning').style.display = 'none';
+}
+</script>
+<script>
+// Show success screen if redirected back from Formspree
+if (window.location.search.includes('success') || document.referrer.includes('formspree')) {
+  document.getElementById('main-form-wrap').style.display = 'none';
+  document.getElementById('success-screen').style.display = 'block';
+}
+</script>
+</body>
+</html>
