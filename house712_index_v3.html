@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F0F4F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1413" media="(prefers-color-scheme: dark)">
+<title>珠海・中山 區域市場 會員關注需求調查｜國際人脈商業有限公司</title>
+<meta name="description" content="會員關注需求調查表，供彙整會員關注之議題與區域，作為後續個別諮詢之依據。">
+<!-- 本頁不載入 Google Fonts：標題改用系統襯線字，日後修改標題不必同步維護字集參數 -->
+<style>
+  /* ── 色彩：南洋海灣（靛藍・柚金・赭紅），淺色／深色各一組 ── */
+  :root{
+    --bg:#F0F4F3; --surface:#FFFFFF; --fill:#E3E9E7; --fill-2:#EDF2F1; --seg-on:#FFFFFF;
+    --ink:#1A2126; --ink-2:#55606A; --ink-3:#808A91;
+    --sep:rgba(26,33,38,.13); --edge:rgba(26,33,38,.07);
+    --azure:#14736B; --on-azure:#FFFFFF;
+    --mala:#8A6535; --mala-tint:#F0EADF;
+    --cinnabar:#B3412B;
+    --danger:#C0392B; --danger-tint:#FBEDEB;
+    --ok:#2C7349; --ok-tint:#E8F4EC;
+    --sky-1:#EDF3F2; --sky-2:#D3E6E2; --title:#11433F;
+    --m-back:#AECFC9; --m-top:#22665F; --m-mid:#2F8177; --m-foot:#BFA36B; --m-front:#174C47;
+    --bar:rgba(240,244,243,.74);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0C1413; --surface:#161F1D; --fill:#232E2C; --fill-2:#212C2A; --seg-on:#3A4644;
+      --ink:#E6EDF1; --ink-2:#A3AEB5; --ink-3:#76828A;
+      --sep:rgba(230,237,241,.13); --edge:rgba(0,0,0,.35);
+      --azure:#63C4B6; --on-azure:#0C1413;
+      --mala:#D3B071; --mala-tint:#2B2418;
+      --cinnabar:#C9563F;
+      --danger:#FF8577; --danger-tint:#3A1F1C;
+      --ok:#7ACF98; --ok-tint:#18301F;
+      --sky-1:#0E1C1A; --sky-2:#122B27; --title:#E9F3F1;
+      --m-back:#1E3B37; --m-top:#2A6159; --m-mid:#2E6F65; --m-foot:#6A5A36; --m-front:#0F2E2A;
+      --bar:rgba(12,20,19,.74);
+    }
+  }
+  @media (prefers-contrast:more){
+    :root{--sep:rgba(26,33,38,.35);--ink-2:#3D474F;--ink-3:#5C666D}
+    .group,.days,.steps,details.legal{outline:1px solid var(--ink-3)}
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    font-size:1.0625rem;line-height:1.7;color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  a,button,label,summary{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  [hidden]{display:none!important}
+  :focus-visible{outline:2px solid var(--azure);outline-offset:2px}
+  .wrap{max-width:40rem;margin:0 auto;padding:0 1rem 4rem}
+
+  /* 返回總覽：每一頁都要有出口 */
+  .back{
+    display:inline-flex;align-items:center;gap:.3rem;
+    min-height:2.25rem;margin-bottom:.35rem;
+    font-size:.875rem;font-weight:500;color:var(--azure);text-decoration:none;
+    transition:transform .1s ease-out,opacity .15s ease;
+  }
+  .back::before{content:"\2039";font-size:1.25rem;line-height:1;margin-top:-.1rem}
+  .back:active{transform:scale(.97)}
+  @media (hover:hover){.back:hover{opacity:.75}}
+  .back-foot{
+    display:flex;align-items:center;justify-content:center;gap:.3rem;
+    min-height:3rem;margin-top:2rem;border-radius:12px;
+    background:var(--surface);color:var(--azure);
+    font-size:1rem;font-weight:600;text-decoration:none;
+    transition:transform .1s ease-out;
+  }
+  .back-foot::before{content:"\2039";font-size:1.25rem;line-height:1;margin-top:-.1rem}
+  .back-foot:active{transform:scale(.98)}
+
+  /* ── 頁首：全頁唯一的視覺重點 ── */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(180deg,var(--sky-1) 0%,var(--sky-2) 100%);
+    --ridge-h:clamp(9.5rem,26.7vw,22rem);   /* 寬螢幕依比例長高，避免天際線被裁切 */
+    padding:2.75rem 1.25rem calc(var(--ridge-h) + 1rem);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:40rem;margin:0 auto}
+  .series{font-size:.875rem;color:var(--ink-2);letter-spacing:.02em;margin-bottom:.75rem}
+  h1{
+    font-family:"Songti TC","Noto Serif CJK TC","Source Han Serif TC",SimSun,serif;font-weight:700;
+    font-size:clamp(1.75rem,6.6vw,2.5rem);line-height:1.3;letter-spacing:.01em;
+    color:var(--title);
+  }
+  .place{margin-top:.5rem;font-size:1.0625rem;font-weight:600;color:var(--ink-2);letter-spacing:.04em}
+  .facts{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin-top:1.5rem}
+  .facts li{font-size:.9375rem;font-weight:600;line-height:1.4}
+  .facts span{display:block;font-size:.75rem;font-weight:400;color:var(--ink-2);letter-spacing:.03em}
+  .hero-cta{
+    display:inline-flex;align-items:center;min-height:2.875rem;margin-top:1.75rem;
+    padding:0 1.5rem;border-radius:999px;background:var(--azure);color:var(--on-azure);
+    font-weight:600;font-size:1rem;text-decoration:none;
+    transition:transform .1s ease-out;
+  }
+  .hero-cta:active{transform:scale(.97)}
+  .hero-note{display:block;margin-top:.6rem;font-size:.8125rem;color:var(--ink-2)}
+  /* 印章落在畫面一角，如同畫作的鈐印；四字依印文慣例由右至左、由上而下 */
+  .seal{
+    position:absolute;right:.25rem;bottom:-4.25rem;width:2.75rem;height:2.75rem;padding:.3rem;
+    display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;place-items:center;
+    background:var(--cinnabar);color:#FBF3EC;border-radius:3px;
+    font-family:"Songti TC","Noto Serif CJK TC","Source Han Serif TC",SimSun,serif;font-weight:700;font-size:.9rem;line-height:1;
+    transform:rotate(-4deg);user-select:none;
+  }
+  .ridges{position:absolute;left:0;bottom:0;width:100%;height:var(--ridge-h);display:block}
+  @media (min-width:40rem){.hero{padding-top:3.5rem}}
+
+  /* ── 分段導覽：半透明材質，內容從底下捲過 ── */
+  .bar{
+    position:sticky;top:0;z-index:10;padding:.5rem 1rem;
+    background:var(--bar);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);
+  }
+  .bar::after{
+    content:"";position:absolute;left:0;right:0;top:100%;height:.75rem;pointer-events:none;
+    background:linear-gradient(var(--edge),transparent);opacity:0;transition:opacity .2s ease;
+  }
+  .bar.stuck::after{opacity:1}
+  @media (prefers-reduced-transparency:reduce){
+    .bar{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+  }
+  .seg-nav{
+    position:relative;display:grid;grid-template-columns:repeat(4,1fr);
+    max-width:26rem;margin:0 auto;padding:2px;background:var(--fill);border-radius:9px;
+  }
+  .seg-nav a{
+    position:relative;z-index:1;display:flex;align-items:center;justify-content:center;
+    min-height:2.5rem;border-radius:7px;font-size:.9375rem;font-weight:500;
+    color:var(--ink);text-decoration:none;
+  }
+  .seg-nav a[aria-current]{font-weight:600}
+  .seg-thumb{
+    position:absolute;top:2px;bottom:2px;left:0;width:0;border-radius:7px;
+    background:var(--seg-on);box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.05);
+    will-change:transform;
+  }
+  .seg-nav.ready .seg-thumb{
+    transition:transform .32s cubic-bezier(.25,.8,.25,1),width .32s cubic-bezier(.25,.8,.25,1);
+  }
+
+  /* ── 區段與分組（iOS 分組清單） ── */
+  .sec{margin-top:2.5rem;scroll-margin-top:4.5rem}
+  .sec > h2{font-size:1.375rem;font-weight:700;line-height:1.3;margin:0 .25rem .75rem}
+  .lead{font-size:.9375rem;color:var(--ink-2);line-height:1.8;margin:0 .25rem 1rem}
+  .group-head{font-size:.8125rem;font-weight:500;color:var(--ink-2);letter-spacing:.02em;margin:1.75rem 1rem .4rem}
+  .group-foot{font-size:.8125rem;color:var(--ink-2);line-height:1.75;margin:.5rem 1rem 0}
+  .group{background:var(--surface);border-radius:12px;overflow:hidden}
+  .group > *{position:relative}
+  .group > * + *::before,
+  .days > li + li::before{
+    content:"";position:absolute;left:1rem;right:0;top:0;
+    border-top:1px solid var(--sep);
+  }
+  @media (min-resolution:2dppx){
+    .group > * + *::before,.days > li + li::before{border-top-width:.5px}
+  }
+
+  .kv{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.8rem 1rem;min-height:2.75rem}
+  .kv .k{font-size:.9375rem;color:var(--ink-2)}
+  .kv .v{font-size:1rem;font-weight:600;text-align:right}
+  .para{padding:.9rem 1rem}
+  .para h3{font-size:.9375rem;font-weight:600;margin-bottom:.2rem}
+  .para p{font-size:.9375rem;line-height:1.8}
+
+  /* 報名流程：真的是先後順序，所以用編號 */
+  .steps{list-style:none;counter-reset:s;background:var(--surface);border-radius:12px;padding:.5rem 1rem}
+  .steps li{
+    position:relative;display:flex;align-items:center;gap:.75rem;
+    min-height:2.625rem;font-size:.9375rem;counter-increment:s;
+  }
+  .steps li::before{
+    content:counter(s);flex:none;display:flex;align-items:center;justify-content:center;
+    width:1.5rem;height:1.5rem;border-radius:50%;
+    font-size:.75rem;font-weight:600;font-variant-numeric:tabular-nums;
+    background:var(--fill);color:var(--ink-2);
+  }
+  .steps li:not(:last-child)::after{
+    content:"";position:absolute;left:calc(.75rem - .5px);top:calc(50% + .75rem);
+    width:1px;height:calc(100% - 1.5rem);background:var(--sep);
+  }
+  .steps li.pay{font-weight:600;color:var(--azure)}
+  .steps li.pay::before{background:var(--azure);color:var(--on-azure)}
+
+  /* ── 日程 ── */
+  .days{list-style:none;background:var(--surface);border-radius:12px;overflow:hidden}
+  .days > li{position:relative;display:grid;grid-template-columns:1fr;gap:.5rem;padding:1rem}
+  .date{display:flex;align-items:baseline;gap:.5rem}
+  .date .md{font-size:1.375rem;font-weight:600;line-height:1.15;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .date .wd{font-size:.8125rem;color:var(--ink-2)}
+  @media (min-width:30rem){
+    .days > li{grid-template-columns:4rem 1fr;gap:0 1rem}
+    .date{display:block}
+    .date .md,.date .wd{display:block}
+    .date .wd{margin-top:.15rem}
+  }
+  .slot{display:flex;gap:.625rem;font-size:.9375rem;line-height:1.7}
+  .slot + .slot{margin-top:.625rem}
+  .slot .t{flex:none;min-width:2.25rem;padding-top:.1rem;font-size:.8125rem;font-weight:600;color:var(--mala)}
+  .obs{display:block;font-size:.8125rem;color:var(--ink-2);line-height:1.6}
+  .tag{
+    display:inline-block;margin-left:.3rem;padding:0 .4rem;border-radius:4px;
+    font-size:.75rem;font-weight:500;line-height:1.6;vertical-align:.08em;white-space:nowrap;
+  }
+  .tag.open{background:var(--mala-tint);color:var(--mala)}
+  .tag.tbd{background:var(--fill);color:var(--ink-2)}
+  .note{margin:.75rem 1rem 0;font-size:.8125rem;color:var(--ink-2);line-height:1.8}
+  .note p + p{margin-top:.35rem}
+
+  /* ── 表單列 ── */
+  .row{padding:.75rem 1rem}
+  .row::after{
+    content:"";position:absolute;left:0;top:.625rem;bottom:.625rem;width:3px;
+    border-radius:0 3px 3px 0;background:transparent;
+  }
+  .row.is-invalid::after{background:var(--danger)}
+  .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;font-size:.875rem;font-weight:600;line-height:1.5}
+  .opt-mark{flex:none;font-size:.75rem;font-weight:400;color:var(--ink-3)}
+  .row.is-invalid .lbl{color:var(--danger)}
+  .hint{margin-top:.15rem;font-size:.8125rem;color:var(--ink-2);line-height:1.6}
+  .row input[type=text],.row input[type=email],.row input[type=tel],.row input[type=date],.row textarea{
+    display:block;width:100%;min-height:2.75rem;margin-top:.45rem;padding:.5rem .75rem;
+    font:inherit;font-size:1.0625rem;color:var(--ink);
+    background:var(--fill-2);border:1px solid transparent;border-radius:8px;outline:none;
+    -webkit-appearance:none;appearance:none;transition:border-color .15s ease,background .15s ease;
+  }
+  .row input:focus,.row textarea:focus{border-color:var(--azure);background:var(--surface)}
+  .row.is-invalid input:not(:focus),.row.is-invalid textarea:not(:focus){background:var(--danger-tint)}
+  .row input::placeholder,.row textarea::placeholder{color:var(--ink-3)}
+  .row input[type=date]::-webkit-date-and-time-value{text-align:left}
+  .row textarea{min-height:5.5rem;resize:vertical;line-height:1.65}
+  .err{display:none;margin-top:.2rem;font-size:.8125rem;color:var(--danger);line-height:1.5}
+  .row.is-invalid .err{display:block}
+
+  /* 二到三選一：分段控制 */
+  .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;margin-top:.5rem;padding:2px;background:var(--fill);border-radius:9px}
+  .seg label{position:relative;display:block;cursor:pointer}
+  .seg input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+  .seg span{
+    display:flex;align-items:center;justify-content:center;min-height:2.5rem;border-radius:7px;
+    font-size:.9375rem;transition:transform .1s ease-out;
+  }
+  .seg input:checked + span{background:var(--seg-on);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.05)}
+  .seg input:focus-visible + span{outline:2px solid var(--azure);outline-offset:1px}
+  .seg label:active span{transform:scale(.97)}
+
+  /* 長句選項：左側選取圓點 */
+  .choices{margin-top:.35rem}
+  .choice{position:relative;display:flex;gap:.75rem;align-items:flex-start;padding:.65rem 0;cursor:pointer;font-size:.9375rem;line-height:1.65}
+  .choice + .choice{border-top:1px solid var(--sep)}
+  .choice input{position:absolute;opacity:0;width:1.375rem;height:1.375rem;margin:.1rem 0 0;cursor:pointer}
+  .mark{
+    position:relative;flex:none;width:1.375rem;height:1.375rem;margin-top:.1rem;
+    border:1.5px solid var(--ink-3);border-radius:50%;transition:transform .1s ease-out;
+  }
+  .choice.box .mark{border-radius:6px}
+  .choice input:checked + .mark{background:var(--azure);border-color:var(--azure)}
+  .choice input:checked + .mark::after{
+    content:"";position:absolute;left:.4rem;top:.18rem;width:.35rem;height:.65rem;
+    border:solid var(--on-azure);border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  .choice input:focus-visible + .mark{outline:2px solid var(--azure);outline-offset:2px}
+  .choice:active .mark{transform:scale(.92)}
+
+  /* 送出 */
+  .submit-area{margin-top:1.5rem}
+  .progress{margin-bottom:.625rem;text-align:center;font-size:.8125rem;color:var(--ink-2)}
+  .progress.done{color:var(--ok)}
+  button.submit{
+    width:100%;min-height:3.25rem;border:0;border-radius:12px;cursor:pointer;
+    font:inherit;font-size:1.0625rem;font-weight:600;letter-spacing:.04em;
+    color:var(--on-azure);background:var(--azure);transition:transform .1s ease-out,opacity .15s ease;
+  }
+  button.submit:active{transform:scale(.98)}
+  button.submit:disabled{opacity:.5;cursor:default;transform:none}
+  @media (hover:hover){button.submit:not(:disabled):hover,.hero-cta:hover{filter:brightness(1.08)}}
+
+  .status{display:none;margin-top:1rem;padding:.875rem 1rem;border-radius:12px;font-size:.9375rem;line-height:1.8}
+  .status.ok{display:block;background:var(--ok-tint);color:var(--ok)}
+  .status.err{display:block;background:var(--danger-tint);color:var(--danger)}
+  .backup-text{
+    display:block;width:100%;min-height:9rem;margin-top:.75rem;padding:.7rem;resize:vertical;
+    font:.8125rem/1.7 ui-monospace,Menlo,monospace;color:var(--ink);
+    background:var(--surface);border:1px solid var(--sep);border-radius:10px;
+  }
+  .fallback-btn{
+    display:flex;align-items:center;justify-content:center;width:100%;min-height:2.875rem;margin-top:.625rem;
+    font:inherit;font-size:.9375rem;font-weight:600;text-decoration:none;cursor:pointer;
+    color:var(--danger);background:var(--surface);border:1px solid var(--sep);border-radius:10px;
+    transition:transform .1s ease-out;
+  }
+  .fallback-btn:active{transform:scale(.98)}
+  .fallback-btn:disabled{opacity:.6;cursor:default}
+  .fallback-btn.line{color:#fff;background:#06C755;border-color:#06C755}
+  .fallback-tip{margin-top:.75rem;font-size:.8125rem;line-height:1.8}
+
+  /* 聯絡 */
+  .line-btn{
+    display:flex;align-items:center;justify-content:center;min-height:3.25rem;border-radius:12px;
+    background:#06C755;color:#fff;font-weight:600;text-decoration:none;transition:transform .1s ease-out;
+  }
+  .line-btn:active{transform:scale(.98)}
+
+  /* 聲明 */
+  details.legal{margin-top:2.5rem;background:var(--surface);border-radius:12px;overflow:hidden}
+  details.legal summary{
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    min-height:2.75rem;padding:.8rem 1rem;list-style:none;cursor:pointer;
+    font-size:.9375rem;font-weight:600;
+  }
+  details.legal summary::-webkit-details-marker{display:none}
+  details.legal summary::after{
+    content:"";flex:none;width:.5rem;height:.5rem;margin-top:-.25rem;
+    border:solid var(--ink-3);border-width:0 2px 2px 0;transform:rotate(45deg);
+    transition:transform .2s ease;
+  }
+  details.legal[open] summary::after{transform:rotate(-135deg);margin-top:.25rem}
+  .legal-body{padding:0 1rem 1.1rem;font-size:.875rem;color:var(--ink-2);line-height:1.9}
+  .legal-body h3{margin-top:1rem;font-size:.875rem;font-weight:600;color:var(--ink)}
+  .legal-body p{margin-top:.3rem}
+  .legal-body p.end{margin-top:1rem}
+
+  footer{margin-top:2rem;text-align:center;font-size:.8125rem;color:var(--ink-3);letter-spacing:.04em}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{transition-duration:.01ms!important}
+    .hero-cta:active,.seg label:active span,.choice:active .mark,
+    button.submit:active,.fallback-btn:active,.line-btn:active{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <a class="back" href="https://edjumptw.github.io/2026events/">2026 全年場次總覽</a>
+    <p class="series">會員服務・需求調查</p>
+    <h1>珠海・中山 區域市場<br>會員關注需求調查</h1>
+    <p class="place">本表為需求調查，非活動報名</p>
+    <ul class="facts">
+      <li><span>調查期間</span>常態受理</li>
+      <li><span>填寫費用</span>免費</li>
+      <li><span>出發日期</span>不設定</li>
+      <li><span>對象</span>限本會員</li>
+    </ul>
+    <a class="hero-cta" href="#form">填寫需求調查</a>
+    <span class="hero-note">填寫本表不產生任何費用，也不構成任何報名或預約。</span>
+    <div class="seal" aria-hidden="true"><span>調</span><span>需</span><span>查</span><span>求</span></div>
+  </div>
+  <!-- 海灣與離島剪影（抽象處理，非特定地景之寫實描繪） -->
+  <svg class="ridges" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="gMid" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--m-top)"/>
+        <stop offset=".6" style="stop-color:var(--m-mid)"/>
+        <stop offset="1" style="stop-color:var(--m-foot)"/>
+      </linearGradient>
+      <linearGradient id="gFront" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--m-front)"/>
+        <stop offset="1" style="stop-color:var(--m-mid)"/>
+      </linearGradient>
+    </defs>
+
+    <!-- 遠岸城市輪廓 -->
+    <g style="fill:var(--m-back)">
+      <rect x="40" y="214" width="46" height="72"/>
+      <rect x="100" y="188" width="34" height="98"/>
+      <rect x="148" y="220" width="52" height="66"/>
+      <rect x="214" y="200" width="38" height="86"/>
+      <rect x="266" y="226" width="58" height="60"/>
+      <rect x="880" y="206" width="40" height="80"/>
+      <rect x="934" y="184" width="30" height="102"/>
+      <rect x="978" y="218" width="54" height="68"/>
+      <rect x="1046" y="198" width="36" height="88"/>
+      <rect x="1096" y="224" width="60" height="62"/>
+    </g>
+
+    <!-- 近岸樓群 -->
+    <g fill="url(#gMid)">
+      <rect x="96" y="160" width="40" height="126"/>
+      <rect x="150" y="182" width="30" height="104"/>
+      <rect x="1000" y="166" width="38" height="120"/>
+      <rect x="1050" y="190" width="28" height="96"/>
+    </g>
+
+    <!-- 灣中離島 -->
+    <g fill="url(#gFront)">
+      <path d="M430 286C452 250 478 232 512 228C548 224 578 246 598 286Z"/>
+      <path d="M636 286C652 258 674 244 700 244C728 244 750 262 764 286Z"/>
+      <path d="M796 286C806 268 820 258 838 258C856 258 870 268 880 286Z"/>
+    </g>
+
+    <!-- 海面 -->
+    <rect x="0" y="286" width="1200" height="34" style="fill:var(--m-front)"/>
+    <g style="fill:var(--m-back);opacity:.32">
+      <rect x="120" y="296" width="200" height="3"/>
+      <rect x="470" y="305" width="250" height="3"/>
+      <rect x="860" y="298" width="180" height="3"/>
+    </g>
+  </svg>
+</header>
+
+<nav class="bar" aria-label="頁面區段">
+  <div class="seg-nav" id="segNav">
+    <span class="seg-thumb" aria-hidden="true"></span>
+    <a href="#about">調查說明</a>
+    <a href="#next">後續安排</a>
+    <a href="#form">調查表</a>
+    <a href="#contact">聯絡</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="sec" id="about">
+    <h2>調查說明</h2>
+
+    <div class="group">
+      <div class="kv"><span class="k">本表性質</span><span class="v">需求調查</span></div>
+      <div class="kv"><span class="k">填寫費用</span><span class="v">免費</span></div>
+      <div class="kv"><span class="k">出發日期</span><span class="v">不設定</span></div>
+    </div>
+
+    <h3 class="group-head">這是什麼</h3>
+    <div class="group">
+      <div class="para">
+        <h3>本表的用途</h3>
+        <p>本表用於彙整會員對珠海、中山一帶區域市場所關注的議題與區域，作為本公司安排<strong>個別諮詢</strong>之依據。填寫本表僅表示您願意接受聯繫，<strong>不構成任何報名、預約或承諾</strong>，也不產生任何費用。</p>
+      </div>
+      <div class="para">
+        <h3>填寫資格</h3>
+        <p>本調查限本公司會員體系之會員填寫，不對外公開招攬。尚非會員者，請於表中勾選「同時申請入會」，經審核通過並完成入會程序後，本公司始就您填寫之內容進行聯繫。</p>
+      </div>
+      <div class="para">
+        <h3>蒐集單位</h3>
+        <p>國際人脈商業有限公司（統一編號 59172443，高雄市橋頭區成功路197號）。本調查由本公司自行辦理，未受任何第三方委託，亦不代任何第三方蒐集資料。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="next">
+    <h2>後續安排</h2>
+    <p class="lead">本表沒有出發日期，也沒有梯次。以下是填寫後會發生的事。</p>
+
+    <ol class="steps">
+      <li>填寫並送出需求調查表</li>
+      <li>本公司彙整會員關注之議題與區域</li>
+      <li class="pay">就您填寫之內容安排個別諮詢</li>
+      <li>如後續另有規劃，個別通知並另行說明</li>
+    </ol>
+    <p class="group-foot">本調查<strong>不設人數門檻，也不設成團條件</strong>。是否就特定區域另行規劃相關安排，由本公司依彙整結果評估後決定，並以個別通知為準；本公司不就此作任何承諾。</p>
+
+    <h3 class="group-head">需要先知道的事</h3>
+    <div class="group">
+      <div class="para">
+        <h3>本表不涉及費用</h3>
+        <p>填寫本表不產生任何費用。本公司不因本表向您收取任何款項，亦不代收代付任何費用。</p>
+      </div>
+      <div class="para">
+        <h3>資料不外流</h3>
+        <p>您填寫之內容僅供本公司內部彙整與個別聯繫使用，<strong>不提供、不轉交、不販售予建設公司、代銷業者、仲介業者或其他任何第三方</strong>。</p>
+      </div>
+      <div class="para">
+        <h3>本表不涉及交易</h3>
+        <p>本公司未經營不動產仲介、代銷或廣告業務，亦非旅行業者，未經營《發展觀光條例》所定之業務。本表所載內容為市場觀察與交流之用，不構成任何投資、置產或交易之建議或要約。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="form">
+    <h2>需求調查表</h2>
+    <p class="lead">除標示「選填」者外均為必填。填寫本表<strong>不產生任何費用</strong>，亦不構成報名或預約。</p>
+
+    <!-- Formspree endpoint（無 JS 時瀏覽器仍會以一般 POST 送出，故 action 保留） -->
+    <form id="regForm" action="https://formspree.io/f/mojrordp" method="POST">
+      <input type="hidden" name="_subject" value="【珠海・中山 會員關注需求調查】新填寫">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_next" id="nextField" value="">
+
+      <h3 class="group-head">聯絡資料</h3>
+      <div class="group">
+        <div class="row" data-err="請填寫姓名">
+          <label class="lbl" for="name">姓名</label>
+          <input type="text" id="name" name="姓名" required autocomplete="name">
+        </div>
+        <div class="row" data-err="請填寫手機號碼">
+          <label class="lbl" for="phone">手機聯繫方式</label>
+          <input type="tel" id="phone" name="手機" required autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="row">
+          <label class="lbl" for="email">Email<span class="opt-mark">選填</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" data-type-err="Email 格式不正確，請確認有「@」與網域">
+        </div>
+        <div class="row" data-err="請填寫微信或 LINE 帳號">
+          <label class="lbl" for="im">微信或 LINE 聯繫帳號</label>
+          <p class="hint">本公司主要透過微信聯繫；如無微信，請填 LINE 帳號。</p>
+          <input type="text" id="im" name="微信或LINE帳號" required>
+        </div>
+        <div class="row" data-err="請填寫常住城市">
+          <label class="lbl" for="city">常住城市</label>
+          <input type="text" id="city" name="常住城市" required autocomplete="address-level2">
+        </div>
+        <div class="row">
+          <label class="lbl" for="job">現職或所屬產業<span class="opt-mark">選填</span></label>
+          <input type="text" id="job" name="現職或所屬產業" placeholder="例如：製造業、自營商、專業服務、已退休">
+        </div>
+      </div>
+
+      <h3 class="group-head">關注方向</h3>
+      <div class="group">
+        <div class="row" data-err="請至少勾選一項">
+          <span class="lbl" id="lb-topic">您關注的議題（可複選）</span>
+          <div class="choices" role="group" aria-labelledby="lb-topic">
+            <label class="choice box"><input type="checkbox" name="關注議題" value="區域產業環境與就業"><span class="mark"></span><span>區域產業環境與就業狀況</span></label>
+            <label class="choice box"><input type="checkbox" name="關注議題" value="城市發展與交通建設"><span class="mark"></span><span>城市發展與交通建設</span></label>
+            <label class="choice box"><input type="checkbox" name="關注議題" value="生活機能與醫療資源"><span class="mark"></span><span>生活機能與醫療資源</span></label>
+            <label class="choice box"><input type="checkbox" name="關注議題" value="子女就學配套"><span class="mark"></span><span>子女就學配套</span></label>
+            <label class="choice box"><input type="checkbox" name="關注議題" value="長期居住之可行性"><span class="mark"></span><span>長期居住之可行性</span></label>
+            <label class="choice box"><input type="checkbox" name="關注議題" value="純粹了解市場現況"><span class="mark"></span><span>純粹了解市場現況</span></label>
+          </div>
+        </div>
+        <div class="row" data-err="請至少勾選一項">
+          <span class="lbl" id="lb-area">您關注的區域（可複選）</span>
+          <div class="choices" role="group" aria-labelledby="lb-area">
+            <label class="choice box"><input type="checkbox" name="關注區域" value="珠海市區"><span class="mark"></span><span>珠海市區</span></label>
+            <label class="choice box"><input type="checkbox" name="關注區域" value="橫琴"><span class="mark"></span><span>橫琴</span></label>
+            <label class="choice box"><input type="checkbox" name="關注區域" value="中山坦洲"><span class="mark"></span><span>中山坦洲</span></label>
+            <label class="choice box"><input type="checkbox" name="關注區域" value="中山三鄉"><span class="mark"></span><span>中山三鄉</span></label>
+            <label class="choice box"><input type="checkbox" name="關注區域" value="中山市區"><span class="mark"></span><span>中山市區</span></label>
+            <label class="choice box"><input type="checkbox" name="關注區域" value="尚無特定區域"><span class="mark"></span><span>尚無特定區域</span></label>
+          </div>
+        </div>
+        <div class="row">
+          <span class="lbl" id="lb-worry">您目前的主要顧慮（可複選，選填）</span>
+          <div class="choices" role="group" aria-labelledby="lb-worry">
+            <label class="choice box"><input type="checkbox" name="主要顧慮" value="法規與政策變動"><span class="mark"></span><span>法規與政策變動</span></label>
+            <label class="choice box"><input type="checkbox" name="主要顧慮" value="資金跨境往來"><span class="mark"></span><span>資金跨境往來</span></label>
+            <label class="choice box"><input type="checkbox" name="主要顧慮" value="權利存續與繼承"><span class="mark"></span><span>權利存續與繼承</span></label>
+            <label class="choice box"><input type="checkbox" name="主要顧慮" value="兩地往返之生活安排"><span class="mark"></span><span>兩地往返之生活安排</span></label>
+            <label class="choice box"><input type="checkbox" name="主要顧慮" value="語言與在地適應"><span class="mark"></span><span>語言與在地適應</span></label>
+            <label class="choice box"><input type="checkbox" name="主要顧慮" value="暫無特別顧慮"><span class="mark"></span><span>暫無特別顧慮</span></label>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="group-head">諮詢方式</h3>
+      <div class="group">
+        <div class="row" data-err="請選擇一項">
+          <span class="lbl" id="lb-way">您方便的諮詢方式</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lb-way">
+            <label><input type="radio" name="諮詢方式" value="線上視訊" required><span>線上視訊</span></label>
+            <label><input type="radio" name="諮詢方式" value="電話"><span>電話</span></label>
+            <label><input type="radio" name="諮詢方式" value="當面"><span>當面</span></label>
+          </div>
+        </div>
+        <div class="row">
+          <label class="lbl" for="when">方便聯繫的時段<span class="opt-mark">選填</span></label>
+          <input type="text" id="when" name="方便聯繫時段" placeholder="例：平日晚上、週六上午">
+        </div>
+      </div>
+
+      <h3 class="group-head">會員身分</h3>
+      <div class="group">
+        <div class="row" data-err="請選擇會員身分">
+          <span class="lbl" id="lb-member">本公司會員身分</span>
+          <p class="hint">本調查限會員填寫，非會員須先完成入會程序。</p>
+          <div class="choices" role="radiogroup" aria-labelledby="lb-member">
+            <label class="choice"><input type="radio" name="會員身分" value="現有會員" required><span class="mark"></span><span>本人為現有會員。</span></label>
+            <label class="choice"><input type="radio" name="會員身分" value="同時申請入會"><span class="mark"></span><span>本人尚非會員，同時申請入會，並瞭解須經審核通過後始完成入會程序。</span></label>
+          </div>
+        </div>
+        <div class="row">
+          <label class="lbl" for="referrer">推薦人<span class="opt-mark">選填</span></label>
+          <input type="text" id="referrer" name="推薦人">
+        </div>
+        <div class="row">
+          <label class="lbl" for="note">其他補充<span class="opt-mark">選填</span></label>
+          <textarea id="note" name="其他補充" placeholder="其他希望本公司了解的事項，請於此說明"></textarea>
+        </div>
+      </div>
+
+      <h3 class="group-head">確認送出</h3>
+      <div class="group">
+        <div class="row" data-err="請勾選同意後再送出">
+          <label class="choice box" for="agree">
+            <input type="checkbox" id="agree" name="同意聲明" value="已閱讀並同意" required><span class="mark"></span>
+            <span>本人已閱讀並同意下方「重要聲明及個人資料蒐集告知事項」，並瞭解本表為需求調查，不構成報名、預約或任何交易。</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <p class="progress" id="progress"></p>
+        <button type="submit" class="submit" id="submitBtn">送出需求調查</button>
+        <div class="status" id="statusBox" role="status" aria-live="polite"></div>
+      </div>
+    </form>
+  </section>
+
+  <section class="sec" id="contact">
+    <h2>聯絡方式</h2>
+    <p class="lead">本調查或入會相關問題，請透過官方 LINE 洽詢，將由專人回覆：</p>
+    <a class="line-btn" href="https://lin.ee/aEaysh6l" target="_blank" rel="noopener">官方 LINE（ID：@tma77）</a>
+  </section>
+
+  <details class="legal">
+    <summary>重要聲明及個人資料蒐集告知事項</summary>
+    <div class="legal-body">
+      <h3>一、本表性質</h3>
+      <p>本表全名為「珠海・中山 區域市場 會員關注需求調查」，係國際人脈商業有限公司為彙整會員關注之議題與區域所辦理之需求調查，限本公司會員體系之會員填寫，不對外公開招攬。填寫本表不構成報名、預約、締約或任何形式之承諾，亦不產生任何費用。</p>
+
+      <h3>二、辦理單位</h3>
+      <p>國際人脈商業有限公司（統一編號 59172443）。本調查由本公司自行辦理，未受任何第三方委託，亦不代任何第三方蒐集資料或招攬業務。本公司非任何境外機關、法人、團體或其他機構在臺灣地區之分支機構、辦事處或代理人。</p>
+
+      <h3>三、業務範圍聲明</h3>
+      <p>本公司未經營不動產仲介、代銷或廣告業務，亦非旅行業者，未經營《發展觀光條例》所定之業務。本表所載之區域名稱僅為標示會員關注之地理範圍，非特定標的之推介。本表及後續個別諮詢之內容，均不構成投資、置產或交易之建議或要約。</p>
+
+      <h3>四、後續安排</h3>
+      <p>本調查不設人數門檻與成團條件，亦不設定日期。是否就特定區域另行規劃相關安排，由本公司依彙整結果評估後決定，並以個別通知為準。如後續另有規劃，其內容、條件與費用將於該時另行說明，不以本表為據。</p>
+
+      <h3>五、個人資料蒐集告知</h3>
+      <p>依《個人資料保護法》第 8 條，謹告知：<br>
+      ・蒐集者：國際人脈商業有限公司（統一編號 59172443）<br>
+      ・蒐集目的：會員需求彙整、個別諮詢安排及行政聯繫（特定目的代號 040、069、090）<br>
+      ・個資類別：識別類（姓名、手機、Email、微信或 LINE 帳號）、社會情況類（常住城市、現職或所屬產業）、您自行填寫之關注議題、關注區域與顧慮事項<br>
+      ・利用期間：自蒐集之日起至您表示終止聯繫，或本調查結束後 2 年止，以先到者為準<br>
+      ・利用地區：臺灣地區。本表單透過表單服務商 Formspree（伺服器位於美國）傳輸與暫存，故填寫之資料將發生國際傳輸<br>
+      ・利用對象：僅限本公司內部。<strong>本公司不將您填寫之資料提供、轉交或販售予建設公司、代銷業者、仲介業者或其他任何第三方。</strong><br>
+      ・當事人得依同法第 3 條規定，請求查詢、閱覽、複製、補充、更正、停止蒐集處理利用或刪除；如不提供必要資料，將無法完成本調查之聯繫作業。</p>
+
+      <p class="end">填表即表示已閱讀並同意上述各項聲明。</p>
+    </div>
+  </details>
+
+  <a class="back-foot" href="https://edjumptw.github.io/2026events/">回到 2026 全年場次總覽</a>
+
+  <footer>國際人脈商業有限公司</footer>
+</main>
+
+<script>
+(() => {
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ── 分段導覽：標示目前所在區段 ───────────────────────── */
+  const nav   = $('#segNav');
+  const thumb = $('.seg-thumb', nav);
+  const links = $$('a', nav);
+  let current = links[0];
+
+  function moveThumb(a){
+    if(!a) return;
+    current = a;
+    thumb.style.width = a.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + a.offsetLeft + 'px)';
+    links.forEach(l => l === a ? l.setAttribute('aria-current', 'location') : l.removeAttribute('aria-current'));
+  }
+  moveThumb(current);
+  requestAnimationFrame(() => nav.classList.add('ready'));   // 首次定位不做動畫
+  links.forEach(a => a.addEventListener('click', () => moveThumb(a)));  // 按下即回應，不等捲動
+  addEventListener('resize', () => moveThumb(current));
+  if(document.fonts) document.fonts.ready.then(() => moveThumb(current));
+
+  const byId = new Map(links.map(a => [a.hash.slice(1), a]));
+  const secObserver = new IntersectionObserver(entries => {
+    entries.forEach(en => { if(en.isIntersecting) moveThumb(byId.get(en.target.id)); });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+  byId.forEach((a, id) => { const s = document.getElementById(id); if(s) secObserver.observe(s); });
+
+  // 導覽列黏住頂端時，才顯示下緣的漸層分隔
+  const bar = $('.bar');
+  new IntersectionObserver(([en]) => bar.classList.toggle('stuck', !en.isIntersecting))
+    .observe($('.hero'));
+
+  /* ── 表單：即時驗證與必填進度 ──────────────────────────── */
+  const form     = $('#regForm');
+  const btn      = $('#submitBtn');
+  const box      = $('#statusBox');
+  const progress = $('#progress');
+
+  form.noValidate = true;   // 有 JS 時改用頁內提示；無 JS 時仍保留瀏覽器原生驗證
+
+  const rows = $$('.row[data-err]', form);
+  const fieldsOf = row => $$('input:not([type=hidden]),textarea,select', row).filter(el => !el.hidden && !el.disabled);
+  const firstBad = row => fieldsOf(row).find(el => !el.checkValidity());
+
+  rows.forEach((row, i) => {
+    const err = document.createElement('p');
+    err.className = 'err';
+    err.id = 'err-' + i;
+    row.appendChild(err);
+    const target = $('[role=radiogroup]', row) || fieldsOf(row)[0];
+    if(target) target.setAttribute('aria-describedby', err.id);
+  });
+
+  function errText(row){
+    const el = firstBad(row);
+    if(!el) return '';
+    if(el.validity.typeMismatch && el.dataset.typeErr) return el.dataset.typeErr;
+    return el.dataset.err || row.dataset.err;
+  }
+
+  function paint(row){
+    const bad = row.classList.contains('touched') && !!firstBad(row);
+    row.classList.toggle('is-invalid', bad);
+    $('.err', row).textContent = bad ? errText(row) : '';
+    const target = $('[role=radiogroup]', row) || fieldsOf(row)[0];
+    if(target) target.setAttribute('aria-invalid', bad ? 'true' : 'false');
+  }
+
+  function remaining(){
+    const seen = new Set();
+    let n = 0;
+    $$('[required]', form).forEach(el => {
+      if(el.hidden || el.disabled) return;
+      const key = el.type === 'radio' ? 'r:' + el.name : el;
+      if(seen.has(key)) return;
+      seen.add(key);
+      if(!el.checkValidity()) n++;
+    });
+    return n;
+  }
+
+  function refreshProgress(){
+    const n = remaining();
+    progress.textContent = n ? '還有 ' + n + ' 項必填未完成' : '必填項目皆已完成';
+    progress.classList.toggle('done', !n);
+  }
+
+  // 離開欄位才標示錯誤；已標示的欄位，一邊輸入一邊更新
+  form.addEventListener('focusout', e => {
+    const row = e.target.closest('.row[data-err]');
+    if(row && !row.contains(e.relatedTarget)){ row.classList.add('touched'); paint(row); }
+  });
+  form.addEventListener('input', e => {
+    const row = e.target.closest('.row[data-err]');
+    if(row && row.classList.contains('touched')) paint(row);
+    refreshProgress();
+  });
+  form.addEventListener('change', e => {
+    const row = e.target.closest('.row[data-err]');
+    if(row && (e.target.type === 'radio' || e.target.type === 'checkbox')){ row.classList.add('touched'); paint(row); }
+    refreshProgress();
+  });
+
+  refreshProgress();
+
+  /* ── 送出處理 ─────────────────────────────────────────── */
+  const nextField = $('#nextField');
+  const SUCCESS_TEXT = '✅ 需求調查已送出，本表不產生任何費用。本公司將彙整您填寫之內容後與您聯繫；如同時申請入會者，將另行通知入會程序。';
+
+  // 一般 POST 的回跳網址：送出後回到本頁並帶上 sent=1，不停留在 Formspree 頁面
+  nextField.value = location.origin + location.pathname + '?sent=1';
+
+  function showStatus(kind, text){
+    box.className = 'status ' + kind;
+    box.textContent = text;
+  }
+
+  function showSuccess(){
+    showStatus('ok', SUCCESS_TEXT);
+    form.reset();
+    rows.forEach(r => { r.classList.remove('touched', 'is-invalid'); $('.err', r).textContent = ''; });
+    progress.textContent = '';
+    btn.disabled = true;
+    btn.textContent = '已送出';
+  }
+
+  // 若由一般 POST 導回（?sent=1），直接顯示成功訊息
+  if(new URLSearchParams(location.search).get('sent') === '1'){
+    showSuccess();
+    box.scrollIntoView({ block: 'center' });
+  }
+
+  // 把已填內容整理成純文字，供備份／貼到 LINE
+  function buildPlainText(){
+    const fd = new FormData(form);
+    const lines = ['【珠海・中山 會員關注需求調查】填寫內容', ''];
+    for(const [k, v] of fd.entries()){
+      if(k.charAt(0) === '_') continue;
+      if(!String(v).trim()) continue;
+      lines.push((k === 'email' ? 'Email' : k) + '：' + v);
+    }
+    return lines.join('\n');
+  }
+
+  // 網路層失敗時的備援：先保住資料，再提供其他送出方式
+  function offerFallback(){
+    box.className = 'status err';
+    box.innerHTML = '<b>無法連線至表單服務，資料尚未送出。</b><br>'
+      + '這與您填寫的內容無關，通常是網路服務商或瀏覽器的安全防護擋住了表單服務的連線。<br><br>'
+      + '請<b>先按「複製填寫內容」保存您填的資料</b>，再嘗試下列任一方式完成填寫。';
+
+    const ta = document.createElement('textarea');
+    ta.className = 'backup-text';
+    ta.readOnly = true;
+    ta.value = buildPlainText();
+
+    const copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.className = 'fallback-btn';
+    copyBtn.textContent = '① 複製填寫內容';
+    copyBtn.addEventListener('click', async () => {
+      try{ await navigator.clipboard.writeText(ta.value); }
+      catch(_){ ta.select(); try{ document.execCommand('copy'); }catch(__){} }
+      copyBtn.textContent = '✓ 已複製，可直接貼到 LINE';
+    });
+
+    const lineBtn = document.createElement('a');
+    lineBtn.className = 'fallback-btn line';
+    lineBtn.href = 'https://lin.ee/aEaysh6l';
+    lineBtn.target = '_blank';
+    lineBtn.rel = 'noopener';
+    lineBtn.textContent = '② 貼到官方 LINE 完成填寫';
+
+    const again = document.createElement('button');
+    again.type = 'button';
+    again.className = 'fallback-btn';
+    again.textContent = '③ 或改用一般方式再送出一次';
+    again.addEventListener('click', () => {
+      again.disabled = true;
+      again.textContent = '送出中…';
+      form.submit();   // 原生 POST，不觸發本處理常式
+    });
+
+    const tip = document.createElement('p');
+    tip.className = 'fallback-tip';
+    tip.textContent = '※ 若第 ③ 項也失敗，可改用行動網路（關閉 Wi-Fi），或改用 Safari、Edge 等其他瀏覽器開啟本頁再送一次。';
+
+    box.append(ta, copyBtn, lineBtn, again, tip);
+  }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    // 有未完成的必填：標出所有錯誤，帶到第一個未填項目
+    if(!form.checkValidity()){
+      rows.forEach(r => { r.classList.add('touched'); paint(r); });
+      const first = rows.find(r => firstBad(r));
+      if(first){
+        first.scrollIntoView({ block: 'center', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        const el = firstBad(first);
+        if(el) el.focus({ preventScroll: true });
+      }
+      showStatus('err', '還有 ' + remaining() + ' 項必填未完成，已帶您到第一個未填項目。');
+      return;
+    }
+
+    btn.disabled = true; btn.textContent = '送出中…';
+    box.className = 'status'; box.textContent = '';
+
+    let res;
+    try{
+      res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+    }catch(_){
+      // fetch 擲出例外＝請求根本沒送出去（被擋、離線、DNS 失敗）
+      offerFallback();
+      btn.disabled = false; btn.textContent = '送出需求調查';
+      return;
+    }
+
+    if(res.ok){ showSuccess(); return; }
+
+    // Formspree 回傳的錯誤格式：{errors:[{field,message}]} 或 {error:"..."}
+    let msg = '';
+    try{
+      const data = await res.json();
+      if(Array.isArray(data.errors) && data.errors.length){
+        msg = data.errors.map(x => x.field ? x.field + '：' + x.message : x.message).join('；');
+      }else if(data.error){
+        msg = data.error;
+      }
+    }catch(_){}
+
+    showStatus('err', msg
+      ? '送出失敗：' + msg + '　如持續失敗，請透過官方 LINE 與我們聯繫。'
+      : '送出失敗（代碼 ' + res.status + '），資料尚未送出。請稍後重試，或透過官方 LINE 與我們聯繫。');
+    btn.disabled = false; btn.textContent = '送出需求調查';
+  });
+})();
+</script>
+</body>
+</html>
